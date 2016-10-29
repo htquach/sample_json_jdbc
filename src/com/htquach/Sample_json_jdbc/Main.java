@@ -34,6 +34,14 @@ public class Main {
     }
 
     private static void AccessPostgreSQL() throws ClassNotFoundException, SQLException {
+        String db_host = System.getenv("DB_HOST");
+        if (db_host == null || db_host.isEmpty()) {
+            db_host = "localhost";
+        }
+        String db_name = System.getenv("DB_NAME");
+        if (db_name == null || db_name.isEmpty()) {
+            db_name = "GTFS";
+        }
         String db_user = System.getenv("DB_USER");
         if (db_user == null || db_user.isEmpty()) {
             System.out.println("DB user is not specified.  Specify its value in the environment variable 'DB_USER'.");
@@ -44,13 +52,17 @@ public class Main {
             System.out.println("DB Password cannot be null.  Specify its value in the environment variable 'DB_PW'.");
             return;
         }
+        String db_schema = System.getenv("DB_SCHEMA");
+        if (db_schema == null || db_schema.isEmpty()) {
+            db_schema = "public";
+        }
 
-        String dbURL = "jdbc:postgresql://localhost/GTFS?user="+db_user+"&password="+db_pw;
+        String dbURL = "jdbc:postgresql://"+db_host+"/"+db_name+"?user="+db_user+"&password="+db_pw+"&currentSchema="+db_schema;
         Connection conn = null;
         Class.forName("org.postgresql.Driver");
         conn = DriverManager.getConnection(dbURL);
         Statement stmt = conn.createStatement();
-        ResultSet resultSet = stmt.executeQuery("SELECT DISTINCT stop_name FROM stops;");
+        ResultSet resultSet = stmt.executeQuery("SELECT DISTINCT stop_name FROM \"GTFS\".stops;");
         System.out.println("Column 1 of data returned from database");
         while (resultSet.next()) {
             System.out.println(resultSet.getString(1));
@@ -60,10 +72,10 @@ public class Main {
     }
 
     private static void GetTrimetVehiclesPosition() throws MalformedURLException {
-        String appID = System.getenv("TriMetAppID");
+        String appID = System.getenv("TRIMETAPPID");
         if (appID == null || appID.isEmpty()) {
             System.out.println("TriMet AppID is required to query realtime data.  " +
-                    "Specify its value in the environment variable 'TrimMetAppID");
+                    "Specify its value in the environment variable 'TriMetAppID");
         }
         URL serviceURL = new URL("http://developer.trimet.org/ws/v2/vehicles/AppID/"+appID);
         try {
@@ -72,7 +84,7 @@ public class Main {
             JSONObject jsonObject = new JSONObject(jsonTokener);
             JSONArray vehicles = jsonObject.getJSONObject("resultSet").getJSONArray("vehicle");
             for (int i = 0; i < vehicles.length(); i++) {
-                System.out.println(vehicles.getJSONObject(i).getString("signMessage"));
+                System.out.println(i+ "   \t>>> " + vehicles.getJSONObject(i).optString("signMessage"));
             }
         } catch (IOException e) {
             e.printStackTrace();
