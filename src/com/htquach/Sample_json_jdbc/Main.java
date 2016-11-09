@@ -5,9 +5,10 @@
  * in this distribution for license terms.
  */
 
-/** This program includes two key methods:
+/** This program includes functions to interact with live data feed and PostgreSQL
  *   1) A method to execute query GTFS data against PostgreSQL;
  *   2) A method to retrieve TriMet realtime data through TriMet Webservices
+ *   3) A method to insert data into PostgreSQL
  */
 
 package com.htquach.Sample_json_jdbc;
@@ -18,23 +19,22 @@ import org.json.JSONTokener;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
-        System.out.println("execute query against postgreSQL");
         //AccessPostgreSQL();
-
-        System.out.println("\n\n=============================================\n\n");
-        System.out.println("Vehicles' sign message from TriMet realtime");
         //GetTrimetVehiclesPosition();
+
+        InsertVehiclesFeedToSQL();
+    }
+
+    private static void InsertVehiclesFeedToSQL() throws ClassNotFoundException, SQLException, IOException {
         Connection conn = GetDBConn();
         Statement stmt = conn.createStatement();
         ResultSet colTypesResult = stmt.executeQuery("SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'vehicles_log';");
@@ -57,6 +57,7 @@ public class Main {
         StringBuilder insertStmt = new StringBuilder();
         insertStmt.append("INSERT INTO \"GTFS\".vehicles_log\n");
         insertStmt.append("\t(");
+        insertStmt.append("\"queryTime\", ");
         int keyCount = keys.size();
         for (int i = 0; i < keyCount; i++) {
             insertStmt.append("\"" + keys.get(i) + "\"");
@@ -64,16 +65,14 @@ public class Main {
                 insertStmt.append(", ");
             }
         }
-
-        insertStmt.append("\"" + keys.get(keyCount - 1) + "\"");
-        insertStmt.append(") ");
-        insertStmt.append(" VALUES\n");
+        insertStmt.append(")\n");
+        insertStmt.append("VALUES\n");
 
         int vehicleCount = vehicles.length();
         for (int m = 0; m < vehicleCount; m++) {
             JSONObject vehicle = vehicles.getJSONObject(m);
             insertStmt.append("\t(");
-
+            insertStmt.append(queryTime + ", ");
             for (int n = 0; n < keyCount; n++) {
                 String key = keys.get(n);
                 switch (colTypes.get(key)) {
@@ -90,7 +89,7 @@ public class Main {
                         insertStmt.append(vehicle.optBigInteger(key, null));
                         break;
                     default:
-                        insertStmt.append("\"" + vehicle.optString(key) + "\"");
+                        insertStmt.append("'" + vehicle.optString(key) + "'");
                 }
                 if (n < keyCount - 1) {
                     insertStmt.append(", ");
@@ -99,14 +98,11 @@ public class Main {
 
             insertStmt.append(")");
             if (m < vehicleCount - 1) {
-                insertStmt.append(", ");
+                insertStmt.append(",\n");
             }
         }
         insertStmt.append(";");
-
-        System.out.println(insertStmt.toString());
-
-
+        stmt.execute(insertStmt.toString());
     }
 
     private static void AccessPostgreSQL() throws ClassNotFoundException, SQLException {
