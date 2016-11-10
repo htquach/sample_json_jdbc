@@ -38,13 +38,7 @@ public class Main {
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException, InterruptedException {
         // AccessPostgreSQL();
         // GetTrimetVehiclesPosition();
-        int seconds_per_day = 60 * 60 * 24;
-        for (int i = 0; i < seconds_per_day; i++) {
-            Thread.sleep(1000);
-            System.out.println(String.format("%.3f%%", (i / ((double) seconds_per_day) * 100)));
-            System.out.println("Insert " + i + " of " + seconds_per_day);
-            InsertVehiclesFeedToSQL();
-        }
+        InsertVehiclesFeedToSQL();
     }
 
     public static void AccessPostgreSQL() throws ClassNotFoundException, SQLException {
