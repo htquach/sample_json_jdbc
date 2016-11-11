@@ -24,9 +24,27 @@ package com.htquach.Sample_json_jdbc;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.w3c.dom.*;
 
+
+import javax.xml.parsers.*;
+
+import org.xml.sax.ErrorHandler;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
+import org.xml.sax.helpers.*;
+
+import java.io.File;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+
+import org.w3c.dom.Document;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
@@ -38,7 +56,31 @@ public class Main {
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException, InterruptedException {
         // AccessPostgreSQL();
         // GetTrimetVehiclesPosition();
-        InsertVehiclesFeedToSQL();
+        //InsertVehiclesFeedToSQL();
+
+        int seconds_per_day = 60 * 60 * 24;
+
+        Connection conn = null;
+        try {
+            conn = GetDBConn();
+            for (int w = 0; w < seconds_per_day; w++) {
+                GetTTIP(conn);
+                // Frequency of 2 minute enforced.
+                Thread.sleep(180000);
+            }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    //Ignore Exception
+                }
+            }
+        }
     }
 
     public static void AccessPostgreSQL() throws ClassNotFoundException, SQLException {
@@ -51,6 +93,75 @@ public class Main {
         }
         resultSet.close();
         stmt.close();
+    }
+
+    private static void GetTTIP(Connection conn) throws IOException, ParserConfigurationException, SAXException, SQLException, InterruptedException {
+        String ttipID = System.getenv("TTIP_ID");
+        if (ttipID == null || ttipID.isEmpty()) {
+            throw new RuntimeException("TTIP Agency ID is required to query TTIP data.  " +
+                    "Specify its value in the environment variable 'TTIP_ID'." +
+                    "Detail http://www.tripcheck.com/ttipv2/Documents/TTIPSystemOverview.pdf");
+        }
+        String ttipDataRequestURLPrefix = "http://www.TripCheck.com/TTIPv2/TTIPData/DataRequest.aspx?uid=" + ttipID + "&fn=";
+
+        HashMap<String, Integer> xmlFeedFrequency = new HashMap<String, Integer>();
+        //xmlFeedFrequency.put("TTDcuInventoryURL", 24 * 60 * 60);
+        xmlFeedFrequency.put("TTDcuTraversals", 120);
+        xmlFeedFrequency.put("TTSegInventory", 120);
+        xmlFeedFrequency.put("TTSegmentCalcs", 120);
+
+
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        Document doc = db.parse(new URL(ttipDataRequestURLPrefix + "TTDcuTraversals").openStream());
+        //Document doc = db.parse(new File("PathToXMLFileForDebugTTDcuTraversals.xml"));
+
+        if (doc.getDocumentElement().getTextContent().contains("too soon to retrieve data")) {
+            System.out.println(doc.getDocumentElement().getTextContent());
+            System.out.println("Going to sleep for 2 minutes...");
+            Thread.sleep(120000);
+            return;
+        }
+
+        NodeList entries = doc.getElementsByTagName("Table");
+
+        StringBuilder stmtBuilder = new StringBuilder();
+        stmtBuilder.append("INSERT INTO \"GTFS\".\"TTDcuTraversals\"(\n" +
+                "\t\"TraversalID\", \"SegmentID\", \"TraversalEndDateTime\", \"TraversalTravelDateTime\", \"DataSourceName\", \"TraversalSubmittedDateTime\")\n" +
+                "\tVALUES\n");
+        for (int i = 0; i < entries.getLength(); i++) {
+            Element current = (Element) entries.item(i);
+
+
+
+            stmtBuilder.append("\t(");
+            stmtBuilder.append(current.getElementsByTagName("TraversalID").item(0).getTextContent());
+            stmtBuilder.append(", ");
+            stmtBuilder.append(current.getElementsByTagName("SegmentID").item(0).getTextContent());
+            stmtBuilder.append(", ");
+            stmtBuilder.append("TIMESTAMP WITH TIME ZONE '");
+            stmtBuilder.append(current.getElementsByTagName("TraversalEndDateTime").item(0).getTextContent());
+            stmtBuilder.append("'");
+            stmtBuilder.append(", ");
+            stmtBuilder.append(current.getElementsByTagName("TraversalTravelDateTime").item(0).getTextContent());
+            stmtBuilder.append(", ");
+            stmtBuilder.append("'");
+            stmtBuilder.append(current.getElementsByTagName("DataSourceName").item(0).getTextContent());
+            stmtBuilder.append("'");
+            stmtBuilder.append(", ");
+            stmtBuilder.append("TIMESTAMP WITH TIME ZONE '");
+            stmtBuilder.append(current.getElementsByTagName("TravesalSubmittedDateTime").item(0).getTextContent());
+            stmtBuilder.append("'");
+            stmtBuilder.append(")");
+            if (i < entries.getLength() - 1) {
+                stmtBuilder.append(",\n");
+            }
+        }
+
+        if (entries.getLength() > 0) {
+            Statement stmt = conn.createStatement();
+            stmt.execute(stmtBuilder.toString());
+        }
     }
 
     public static void GetTrimetVehiclesPosition() throws IOException {
@@ -71,7 +182,7 @@ public class Main {
             Statement stmt = conn.createStatement();
             ResultSet colTypesResult = stmt.executeQuery("SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'vehicles_log';");
 
-            HashMap<String, String> colTypes = new HashMap<>();
+            HashMap<String, String> colTypes = new HashMap<String, String>();
             while (colTypesResult.next()) {
                 colTypes.put(colTypesResult.getString(1), colTypesResult.getString(2));
             }
@@ -86,7 +197,7 @@ public class Main {
                 JSONArray vehicles = jsonObject.getJSONObject("resultSet").getJSONArray("vehicle");
 
                 Iterator<String> keysIter = vehicles.getJSONObject(0).keys();
-                ArrayList<String> keys = new ArrayList<>();
+                ArrayList<String> keys = new ArrayList<String>();
                 while (keysIter.hasNext()) {
                     keys.add(keysIter.next());
                 }
@@ -97,7 +208,9 @@ public class Main {
                 insertStmt.append("\"queryTime\", ");
                 int keyCount = keys.size();
                 for (int i = 0; i < keyCount; i++) {
-                    insertStmt.append("\"" + keys.get(i) + "\"");
+                    insertStmt.append("\"");
+                    insertStmt.append(keys.get(i));
+                    insertStmt.append("\"");
                     if (i < keyCount - 1) {
                         insertStmt.append(", ");
                     }
@@ -109,24 +222,27 @@ public class Main {
                 for (int m = 0; m < vehicleCount; m++) {
                     JSONObject vehicle = vehicles.getJSONObject(m);
                     insertStmt.append("\t(");
-                    insertStmt.append(queryTime + ", ");
+                    insertStmt.append(queryTime);
+                    insertStmt.append(", ");
                     for (int n = 0; n < keyCount; n++) {
                         String key = keys.get(n);
-                        switch (colTypes.get(key)) {
-                            case "integer":
-                                insertStmt.append(vehicle.optInt(key));
-                                break;
-                            case "boolean":
-                                insertStmt.append(vehicle.optBoolean(key));
-                                break;
-                            case "real":
-                                insertStmt.append(vehicle.optDouble(key));
-                                break;
-                            case "bigint":
-                                insertStmt.append(vehicle.optBigInteger(key, null));
-                                break;
-                            default:
-                                insertStmt.append("'" + vehicle.optString(key) + "'");
+                        String s = colTypes.get(key);
+                        if (s.equals("integer")) {
+                            insertStmt.append(vehicle.optInt(key));
+
+                        } else if (s.equals("boolean")) {
+                            insertStmt.append(vehicle.optBoolean(key));
+
+                        } else if (s.equals("real")) {
+                            insertStmt.append(vehicle.optDouble(key));
+
+                        } else if (s.equals("bigint")) {
+                            insertStmt.append(vehicle.optBigInteger(key, null));
+
+                        } else {
+                            insertStmt.append("'");
+                            insertStmt.append(vehicle.optString(key));
+                            insertStmt.append("'");
                         }
                         if (n < keyCount - 1) {
                             insertStmt.append(", ");
@@ -145,9 +261,11 @@ public class Main {
             e.printStackTrace();
         } finally {
             try {
-                conn.close();
+                if (conn != null) {
+                    conn.close();
+                }
             } catch (SQLException e) {
-                //Ignore Exceptio
+                //Ignore Exception
             }
         }
     }
@@ -155,7 +273,7 @@ public class Main {
     private static Connection GetDBConn() throws ClassNotFoundException, SQLException {
         String db_host = System.getenv("DB_HOST");
         if (db_host == null || db_host.isEmpty()) {
-            db_host = "localhost";
+            throw new RuntimeException("DB host has not been specified.  Specify its value in the environment variable 'DB_HOST'.");
         }
         String db_name = System.getenv("DB_NAME");
         if (db_name == null || db_name.isEmpty()) {
@@ -163,7 +281,7 @@ public class Main {
         }
         String db_user = System.getenv("DB_USER");
         if (db_user == null || db_user.isEmpty()) {
-            throw new RuntimeException("DB user is not specified.  Specify its value in the environment variable 'DB_USER'.");
+            throw new RuntimeException("DB user has not been specified.  Specify its value in the environment variable 'DB_USER'.");
         }
         String db_pw = System.getenv("DB_PW");
         if (db_pw == null) {
@@ -175,10 +293,8 @@ public class Main {
         }
 
         String dbURL = "jdbc:postgresql://" + db_host + "/" + db_name + "?user=" + db_user + "&password=" + db_pw + "&currentSchema=" + db_schema;
-        Connection conn = null;
         Class.forName("org.postgresql.Driver");
-        conn = DriverManager.getConnection(dbURL);
-        return conn;
+        return DriverManager.getConnection(dbURL);
     }
 
     private static JSONObject GetVehiclesFeed() throws IOException {
