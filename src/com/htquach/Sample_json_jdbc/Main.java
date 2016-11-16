@@ -3,7 +3,7 @@
  * <p>
  * This source file is licensed under the "MIT License."  Please see the LICENSE
  * in this distribution for license terms.
- *
+ * <p>
  * This program includes functions to interact with live data feed and PostgreSQL
  */
 
@@ -17,22 +17,15 @@ import org.w3c.dom.*;
 
 import javax.xml.parsers.*;
 
-import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException;
-import org.xml.sax.helpers.*;
-
-import java.io.File;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 
 import org.w3c.dom.Document;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
@@ -52,10 +45,15 @@ public class Main {
         try {
             conn = GetDBConn();
             for (int w = 1; w <= loopCount; w++) {
-                 twoMinutesReady = !twoMinutesReady;
+                twoMinutesReady = !twoMinutesReady;
                 if (twoMinutesReady) {
                     // Frequency of 2 minute enforced by TTIP data source
-                    GetTTIP(conn);
+                    GetTtipTTDcuTraversals(conn);
+                    GetTtipTTSegmentCalcs(conn);
+
+                    // TODO:  implement these functions
+                    //GetTtipTTSegInventory(conn);
+                    //GetTtipTTDcuInventoryURL(conn); //every 24 hours
                 }
                 InsertVehiclesFeedToSQL(conn);
                 System.out.println(String.format("%.3f%%", (w / ((double) loopCount) * 100)));
@@ -88,7 +86,7 @@ public class Main {
         stmt.close();
     }
 
-    private static void GetTTIP(Connection conn) throws IOException, ParserConfigurationException, SAXException, SQLException, InterruptedException {
+    private static void GetTtipTTSegmentCalcs(Connection conn) throws IOException, ParserConfigurationException, SAXException, SQLException, InterruptedException {
         String ttipID = System.getenv("TTIP_ID");
         if (ttipID == null || ttipID.isEmpty()) {
             throw new RuntimeException("TTIP Agency ID is required to query TTIP data.  " +
@@ -99,9 +97,106 @@ public class Main {
 
         HashMap<String, Integer> xmlFeedFrequency = new HashMap<String, Integer>();
         //xmlFeedFrequency.put("TTDcuInventoryURL", 24 * 60 * 60);
-        xmlFeedFrequency.put("TTDcuTraversals", 120);
         xmlFeedFrequency.put("TTSegInventory", 120);
-        xmlFeedFrequency.put("TTSegmentCalcs", 120);
+
+
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        Document doc = db.parse(new URL(ttipDataRequestURLPrefix + "TTSegmentCalcs").openStream());
+        // Document doc = db.parse(new File("C:\\Users\\htquach\\Desktop\\TTIP Data\\TTSegmentCalcs.xml"));
+
+        if (doc.getDocumentElement().getTextContent().contains("too soon to retrieve data")) {
+            System.out.println(doc.getDocumentElement().getTextContent());
+            return;
+        }
+
+        NodeList entries = doc.getElementsByTagName("Table");
+
+        StringBuilder stmtBuilder = new StringBuilder();
+        stmtBuilder.append("INSERT INTO \"GTFS\".\"TTSegmentCalcs\"(\n" +
+                "\t\"SegmentID\", \"SegmentCalcTime\", \"SegmentTravelTime\", \"CalcVariance\", \"CalcConfidenceInterval\", \"StdDeviationCalcSamplesRemoved\", \"StandardDeviationFitlerValue\", \"ExceededMaxFilter\", \"BelowMinFilter\")\n" +
+                "\tVALUES\n");
+        for (int i = 0; i < entries.getLength(); i++) {
+            Element current = (Element) entries.item(i);
+
+            stmtBuilder.append("\t(");
+            stmtBuilder.append(current.getElementsByTagName("SegmentID").item(0).getTextContent());
+            stmtBuilder.append(", ");
+            stmtBuilder.append("TIMESTAMP WITH TIME ZONE '");
+            stmtBuilder.append(current.getElementsByTagName("SegmentCalcTime").item(0).getTextContent());
+            stmtBuilder.append("'");
+            stmtBuilder.append(", ");
+            if (current.getElementsByTagName("SegmentTravelTime").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("SegmentTravelTime").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("0");
+            }
+            stmtBuilder.append(", ");
+            if (current.getElementsByTagName("CalcVariance").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("CalcVariance").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("0");
+            }
+            stmtBuilder.append(", ");
+            if (current.getElementsByTagName("CalcConfidenceInterval").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("CalcConfidenceInterval").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("0");
+            }
+            stmtBuilder.append(", ");
+            if (current.getElementsByTagName("StdDeviationCalcSamplesRemoved").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("StdDeviationCalcSamplesRemoved").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("0");
+            }
+            stmtBuilder.append(", ");
+            if (current.getElementsByTagName("StandardDeviationFitlerValue").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("StandardDeviationFitlerValue").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("0");
+            }
+            stmtBuilder.append(", ");
+            if (current.getElementsByTagName("ExceededMaxFilter").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("ExceededMaxFilter").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("0");
+            }
+            stmtBuilder.append(", ");
+            if (current.getElementsByTagName("BelowMinFilter").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("BelowMinFilter").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("0");
+            }
+            stmtBuilder.append(")");
+            if (i < entries.getLength() - 1) {
+                stmtBuilder.append(",\n");
+            }
+        }
+
+
+//        <SegmentID>2381</SegmentID>
+//        <SegmentCalcTime>2016-10-28T17:30:20.677-07:00</SegmentCalcTime>
+//        <StdDeviationCalcSamplesRemoved>0</StdDeviationCalcSamplesRemoved>
+//        <ExceededMaxFilter>0</ExceededMaxFilter>
+//        <BelowMinFilter>57</BelowMinFilter>
+
+        if (entries.getLength() > 0) {
+            Statement stmt = conn.createStatement();
+            stmt.execute(stmtBuilder.toString());
+        }
+        System.out.println(stmtBuilder.toString());
+    }
+
+    private static void GetTtipTTDcuTraversals(Connection conn) throws IOException, ParserConfigurationException, SAXException, SQLException, InterruptedException {
+        String ttipID = System.getenv("TTIP_ID");
+        if (ttipID == null || ttipID.isEmpty()) {
+            throw new RuntimeException("TTIP Agency ID is required to query TTIP data.  " +
+                    "Specify its value in the environment variable 'TTIP_ID'." +
+                    "Detail http://www.tripcheck.com/ttipv2/Documents/TTIPSystemOverview.pdf");
+        }
+        String ttipDataRequestURLPrefix = "http://www.TripCheck.com/TTIPv2/TTIPData/DataRequest.aspx?uid=" + ttipID + "&fn=";
+
+        HashMap<String, Integer> xmlFeedFrequency = new HashMap<String, Integer>();
 
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
