@@ -1,0 +1,1119 @@
+<!-- view-source:http://www.tripcheck.com/TTIPv2/TTIPData/DataRequest.aspx?uid=____&fn=TTDcuInventory -->
+<NewDataSet>
+  <Table>
+    <DcuID>467</DcuID>
+    <DcuName>99W @ I-5</DcuName>
+    <Latitude>45.44326</Latitude>
+    <Longitude>-122.74279</Longitude>
+    <Highway>99W</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>7.58</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>468</DcuID>
+    <DcuName>99W @217 NB</DcuName>
+    <Latitude>45.43568</Latitude>
+    <Longitude>-122.75995</Longitude>
+    <Highway>99W</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>8.55</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>469</DcuID>
+    <DcuName>99W @ Main</DcuName>
+    <Latitude>45.42893</Latitude>
+    <Longitude>-122.77569</Longitude>
+    <Highway>99W</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>9.46</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>470</DcuID>
+    <DcuName>99W @ McDonald</DcuName>
+    <Latitude>45.41856</Latitude>
+    <Longitude>-122.78755</Longitude>
+    <Highway>99W</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>10.39</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>471</DcuID>
+    <DcuName>99W @ Durham</DcuName>
+    <Latitude>45.40456</Latitude>
+    <Longitude>-122.79645</Longitude>
+    <Highway>99W</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>11.49</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>472</DcuID>
+    <DcuName>Barnes Rd EB @ VMS</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>OR217</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>473</DcuID>
+    <DcuName>Barnes Rd SB @ Ramp Meter</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>OR217</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>474</DcuID>
+    <DcuName>Barnes Rd WB @ VMS</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>OR217</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>475</DcuID>
+    <DcuName>B-H CN2 @ VMS</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>OR217</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>476</DcuID>
+    <DcuName>Canyon NB @ Ramp Meter</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>OR217</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>477</DcuID>
+    <DcuName>B-H SB @ Ramp Meter</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>OR217</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>478</DcuID>
+    <DcuName>99W @ NB Slip Ramp</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>OR217</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>479</DcuID>
+    <DcuName>99W @ SB Slip Ramp</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>OR217</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>480</DcuID>
+    <DcuName>72nd NB Loop Ramp</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>OR217</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>481</DcuID>
+    <DcuName>Kruse Way @ SB Ramp Meter</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>OR217</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>482</DcuID>
+    <DcuName>Kruse Way @ NB Ramp Meter</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>OR217</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>483</DcuID>
+    <DcuName>Kruse Way WB @ Kruse Oaks VMS</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>OR217</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>484</DcuID>
+    <DcuName>99W @ Main VMS</DcuName>
+    <Latitude>45.40000</Latitude>
+    <Longitude>-122.70000</Longitude>
+    <Highway>OR99W</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>9.46</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>485</DcuID>
+    <DcuName>BT Trailer ITS 04-1993</DcuName>
+    <Latitude>45.75791</Latitude>
+    <Longitude>-122.87795</Longitude>
+    <Highway>US30</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>false</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>486</DcuID>
+    <DcuName>BT Trailer FLEET 99-0974</DcuName>
+    <Latitude>45.74870</Latitude>
+    <Longitude>-122.87711</Longitude>
+    <Highway>US30</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>false</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>489</DcuID>
+    <DcuName>Beltline at NW Exp</DcuName>
+    <Latitude>44.09772</Latitude>
+    <Longitude>-123.14498</Longitude>
+    <Highway>OR569</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>7.66</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>490</DcuID>
+    <DcuName>Beltline at River Ave</DcuName>
+    <Latitude>44.09625</Latitude>
+    <Longitude>-123.10914</Longitude>
+    <Highway>OR569</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>9.50</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>491</DcuID>
+    <DcuName>Beltline at I-5</DcuName>
+    <Latitude>44.08396</Latitude>
+    <Longitude>-123.04492</Longitude>
+    <Highway>OR569</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>12.70</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>492</DcuID>
+    <DcuName>US101 at Neotsu Dr</DcuName>
+    <Latitude>45.00171</Latitude>
+    <Longitude>-123.98687</Longitude>
+    <Highway>US101</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>111.78</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>493</DcuID>
+    <DcuName>US101 at 22nd St</DcuName>
+    <Latitude>44.98159</Latitude>
+    <Longitude>-124.00779</Longitude>
+    <Highway>US101</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>113.82</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>494</DcuID>
+    <DcuName>US101 at NE 6th Dr</DcuName>
+    <Latitude>44.97100</Latitude>
+    <Longitude>-124.01461</Longitude>
+    <Highway>US101</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>114.64</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>495</DcuID>
+    <DcuName>US101 at SE East Devils Lake Rd</DcuName>
+    <Latitude>44.95893</Latitude>
+    <Longitude>-124.01339</Longitude>
+    <Highway>US101</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>115.56</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>496</DcuID>
+    <DcuName>SMWZ Trailer A</DcuName>
+    <Latitude>43.71442</Latitude>
+    <Longitude>-123.21554</Longitude>
+    <Highway>I5</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>162.88</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>497</DcuID>
+    <DcuName>SMWZ Trailer B</DcuName>
+    <Latitude>43.67856</Latitude>
+    <Longitude>-123.19844</Longitude>
+    <Highway>I5</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>159.63</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>498</DcuID>
+    <DcuName>SMWZ Trailer C</DcuName>
+    <Latitude>43.63345</Latitude>
+    <Longitude>-123.21824</Longitude>
+    <Highway>I5</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>156.53</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>499</DcuID>
+    <DcuName>SMWZ Trailer D</DcuName>
+    <Latitude>43.60011</Latitude>
+    <Longitude>-123.23392</Longitude>
+    <Highway>I5</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>153.79</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>500</DcuID>
+    <DcuName>I-205 @ Airport Way (MP24.75)</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>I-205</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>24.75</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>501</DcuID>
+    <DcuName>I-205 @ Government Island (MP25.65)</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>I-205</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>25.65</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>502</DcuID>
+    <DcuName>I-205 @ SR14 (WA)</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>I-205</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>503</DcuID>
+    <DcuName>I-5 @ Jantzen Beach (MP308)</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>I-5</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>308.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>504</DcuID>
+    <DcuName>I-5 @ SR14 (WA)</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>I-5</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>505</DcuID>
+    <DcuName>185th Ave at US26 EB</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>185th</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>506</DcuID>
+    <DcuName>185th Ave at TV Hwy</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>185th</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>507</DcuID>
+    <DcuName>185th at Baseline Rd</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>185th</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>508</DcuID>
+    <DcuName>185th Ave at Cornell Rd</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>185th</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>509</DcuID>
+    <DcuName>Cornelius Pass Rd at US26 EB</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>CPR</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>510</DcuID>
+    <DcuName>Cornelius Pass Rd at TV Hwy</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>CPR</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>511</DcuID>
+    <DcuName>Cornelius Pass Rd at Baseline Rd</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>CPR</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>512</DcuID>
+    <DcuName>Murray Blvd at US26 EB</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>MB</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>513</DcuID>
+    <DcuName>Murray Blvd at TV Hwy</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>MB</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>514</DcuID>
+    <DcuName>Murray Blvd at Jenkins Rd</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>MB</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>515</DcuID>
+    <DcuName>Murray Blvd at Maverick Terrace</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>MB</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>516</DcuID>
+    <DcuName>Murray Blvd at Allen Blvd</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>MB</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>517</DcuID>
+    <DcuName>Murray Blvd at Scholls Ferry Rd</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>MB</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>518</DcuID>
+    <DcuName>Scholls Ferry Rd at OR217 SB</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>SFR</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>519</DcuID>
+    <DcuName>Scholls Ferry Rd at Hall Blvd</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>SFR</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>520</DcuID>
+    <DcuName>Scholls Ferry Rd at 121st Ave</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>SFR</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>521</DcuID>
+    <DcuName>Scholls Ferry Rd at Nimbus Ave</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>SFR</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>522</DcuID>
+    <DcuName>TV Hwy at Brookwood Ave</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>TVH</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>523</DcuID>
+    <DcuName>TV Hwy at Lombard Ave</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>TVH</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>524</DcuID>
+    <DcuName>TV Hwy at Cedar Hills Blvd</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>TVH</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>Wash Co</OWNER>
+  </Table>
+  <Table>
+    <DcuID>525</DcuID>
+    <DcuName>US26 at Arlie Mitchell Rd MP43.77</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>43.77</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>526</DcuID>
+    <DcuName>US26 at Government Camp Loop West MP52.47</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>52.47</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>527</DcuID>
+    <DcuName>US26 at Maintenance West Entrance MP54.13</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>54.13</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>528</DcuID>
+    <DcuName>OR35 at US26 MP57.52</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>57.52</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>529</DcuID>
+    <DcuName>US26 at Frog Lake MP57.52</DcuName>
+    <Latitude>0.00000</Latitude>
+    <Longitude>0.00000</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>57.52</MilePoint>
+    <LocationType>FreeFlowingTraffic</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+  <Table>
+    <DcuID>530</DcuID>
+    <DcuName>Barbur Blvd at Capitol</DcuName>
+    <Latitude>45.45366</Latitude>
+    <Longitude>-122.72106</Longitude>
+    <Highway>99W</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>1.12</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>531</DcuID>
+    <DcuName>Barbur Blvd at Bertha</DcuName>
+    <Latitude>45.47081</Latitude>
+    <Longitude>-122.68837</Longitude>
+    <Highway>99W</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>532</DcuID>
+    <DcuName>Barbur Blvd at Hamilton</DcuName>
+    <Latitude>45.49112</Latitude>
+    <Longitude>-122.67807</Longitude>
+    <Highway>99W</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>533</DcuID>
+    <DcuName>Powell Blvd at SE 33rd</DcuName>
+    <Latitude>45.49678</Latitude>
+    <Longitude>-122.63147</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>534</DcuID>
+    <DcuName>Foster Rd at SE 82nd</DcuName>
+    <Latitude>45.48278</Latitude>
+    <Longitude>-122.57888</Longitude>
+    <Highway>Fostr</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>535</DcuID>
+    <DcuName>Powell Blvd at SE 8th</DcuName>
+    <Latitude>45.50150</Latitude>
+    <Longitude>-122.65785</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>536</DcuID>
+    <DcuName>Powell Blvd at SE 21st</DcuName>
+    <Latitude>45.49935</Latitude>
+    <Longitude>-122.64465</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>537</DcuID>
+    <DcuName>Powell Blvd at SE 78th</DcuName>
+    <Latitude>45.49740</Latitude>
+    <Longitude>-122.58380</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>538</DcuID>
+    <DcuName>Powell Blvd at SE 54th</DcuName>
+    <Latitude>45.49750</Latitude>
+    <Longitude>-122.60710</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>539</DcuID>
+    <DcuName>Powell Blvd at SE 42nd 43rd</DcuName>
+    <Latitude>45.49750</Latitude>
+    <Longitude>-122.61900</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>540</DcuID>
+    <DcuName>Foster Rd at SE 52nd</DcuName>
+    <Latitude>45.49572</Latitude>
+    <Longitude>-122.60901</Longitude>
+    <Highway>Fostr</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>541</DcuID>
+    <DcuName>McLoughlin Blvd at SE 17th</DcuName>
+    <Latitude>45.48623</Latitude>
+    <Longitude>-122.64838</Longitude>
+    <Highway>99E</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>542</DcuID>
+    <DcuName>Division St at SE 11th</DcuName>
+    <Latitude>45.50486</Latitude>
+    <Longitude>-122.65473</Longitude>
+    <Highway>Divsn</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>543</DcuID>
+    <DcuName>Milwaukie Ave at Pershing</DcuName>
+    <Latitude>45.49889</Latitude>
+    <Longitude>-122.65419</Longitude>
+    <Highway>Milwa</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>544</DcuID>
+    <DcuName>SE 39th Ave at Gladstone</DcuName>
+    <Latitude>45.49334</Latitude>
+    <Longitude>-122.62265</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>545</DcuID>
+    <DcuName>SE 39th Ave at Franklin</DcuName>
+    <Latitude>45.49905</Latitude>
+    <Longitude>-122.62259</Longitude>
+    <Highway>US26</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>546</DcuID>
+    <DcuName>SE 17th at Holgate</DcuName>
+    <Latitude>45.49031</Latitude>
+    <Longitude>-122.64833</Longitude>
+    <Highway>17th</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>547</DcuID>
+    <DcuName>Division St at SE 12th</DcuName>
+    <Latitude>45.50484</Latitude>
+    <Longitude>-122.65372</Longitude>
+    <Highway>Divsn</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>548</DcuID>
+    <DcuName>McLoughlin Blvd at SE Harold</DcuName>
+    <Latitude>45.48315</Latitude>
+    <Longitude>-122.64331</Longitude>
+    <Highway>99E</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>549</DcuID>
+    <DcuName>NE 82nd Ave at NE Glisan St</DcuName>
+    <Latitude>45.52638</Latitude>
+    <Longitude>-122.57902</Longitude>
+    <Highway>OR213</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>550</DcuID>
+    <DcuName>NE Couch St at NE 12th Ave</DcuName>
+    <Latitude>45.52362</Latitude>
+    <Longitude>-122.65360</Longitude>
+    <Highway>Couch</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>551</DcuID>
+    <DcuName>NE Killingsworth St at NE 82nd Ave</DcuName>
+    <Latitude>45.56267</Latitude>
+    <Longitude>-122.57849</Longitude>
+    <Highway>OR213</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>552</DcuID>
+    <DcuName>NE Sandy Blvd at NE 82nd Ave</DcuName>
+    <Latitude>45.55241</Latitude>
+    <Longitude>-122.57867</Longitude>
+    <Highway>OR213</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>553</DcuID>
+    <DcuName>NE Sandy Blvd at NE 37th Ave</DcuName>
+    <Latitude>45.53401</Latitude>
+    <Longitude>-122.62501</Longitude>
+    <Highway>Sandy</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>554</DcuID>
+    <DcuName>SW Macadam Ave at SW Taylors Ferry Rd</DcuName>
+    <Latitude>45.47228</Latitude>
+    <Longitude>-122.67163</Longitude>
+    <Highway>Macad</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>555</DcuID>
+    <DcuName>SW Macadam Ave at SW Bancroft St</DcuName>
+    <Latitude>45.49319</Latitude>
+    <Longitude>-122.67298</Longitude>
+    <Highway>Macad</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>556</DcuID>
+    <DcuName>SW Beaverton Hillsdale Hwy at SW Capitol Hwy</DcuName>
+    <Latitude>45.47809</Latitude>
+    <Longitude>-122.69778</Longitude>
+    <Highway>B-H</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>557</DcuID>
+    <DcuName>SE 82nd Ave at Springwater Corridor Trail</DcuName>
+    <Latitude>45.64445</Latitude>
+    <Longitude>-122.57902</Longitude>
+    <Highway>OR213</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>558</DcuID>
+    <DcuName>SE 122nd Ave at SE Market St</DcuName>
+    <Latitude>45.51155</Latitude>
+    <Longitude>-122.53765</Longitude>
+    <Highway>COP</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>559</DcuID>
+    <DcuName>SE Division St at SE 130th Ave</DcuName>
+    <Latitude>45.50405</Latitude>
+    <Longitude>-122.52995</Longitude>
+    <Highway>COP</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>560</DcuID>
+    <DcuName>SE Division St at SE 119th Ave</DcuName>
+    <Latitude>45.50412</Latitude>
+    <Longitude>-122.54098</Longitude>
+    <Highway>COP</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>0.00</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>City of Portland</OWNER>
+  </Table>
+  <Table>
+    <DcuID>561</DcuID>
+    <DcuName>OR99W at Meinecke</DcuName>
+    <Latitude>45.36080</Latitude>
+    <Longitude>-122.85600</Longitude>
+    <Highway>OR99W</Highway>
+    <RoadwayNumber>1</RoadwayNumber>
+    <MilePoint>15.95</MilePoint>
+    <LocationType>Intersection</LocationType>
+    <IsActive>true</IsActive>
+    <OWNER>ODOT</OWNER>
+  </Table>
+</NewDataSet>
