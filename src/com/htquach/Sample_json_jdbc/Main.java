@@ -49,11 +49,13 @@ public class Main {
                     // Frequency of 2 minute enforced by TTIP data source
                     GetTtipTTDcuTraversals(conn);
                     GetTtipTTSegmentCalcs(conn);
-                    GetTtipTTDcuInventory(conn);
 
                     // TODO:  implement these functions
                     // GetTtipTTSegInventory(conn); //every 24 hours
                 }
+                // TODO:  Add logic to allow run every 24 hours
+                // Implemented but can only run every 24 hours
+                // GetTtipTTDcuInventory(conn); // every 24 hours
                 InsertVehiclesFeedToSQL(conn);
                 System.out.println(String.format("%.3f%%", (w / ((double) loopCount) * 100)));
                 System.out.println("Insert " + w + " of " + loopCount);
@@ -100,6 +102,7 @@ public class Main {
         // Document doc = db.parse(new File("misc/TTIPData/TTDcuInventory.xml"));
 
         if (doc.getDocumentElement().getTextContent().contains("too soon to retrieve data")) {
+            System.out.println("http://www.TripCheck.com/TTIPv2/TTIPData/DataRequest.aspx?uid=****&fn=TTDcuInventory");
             System.out.println(doc.getDocumentElement().getTextContent());
             return;
         }
@@ -193,7 +196,7 @@ public class Main {
             stmt.execute("DELETE FROM \"GTFS\".\"TTDcuInventory\" WHERE \"DcuID\" IN (" + dcuIDs.toString() + ");");
             stmt.execute(stmtBuilder.toString());
         }
-        System.out.println(stmtBuilder.toString());
+        // System.out.println(stmtBuilder.toString());
     }
 
     private static void GetTtipTTSegmentCalcs(Connection conn) throws IOException, ParserConfigurationException, SAXException, SQLException, InterruptedException {
@@ -208,9 +211,10 @@ public class Main {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db = dbf.newDocumentBuilder();
         Document doc = db.parse(new URL(ttipDataRequestURLPrefix + "TTSegmentCalcs").openStream());
-        // Document doc = db.parse(new File("C:\\Users\\htquach\\Desktop\\TTIP Data\\TTSegmentCalcs.xml"));
+        // Document doc = db.parse(new File("misc/TTIPData/TTSegmentCalcs.xml"));
 
         if (doc.getDocumentElement().getTextContent().contains("too soon to retrieve data")) {
+            System.out.println("http://www.TripCheck.com/TTIPv2/TTIPData/DataRequest.aspx?uid=****&fn=TTSegmentCalcs");
             System.out.println(doc.getDocumentElement().getTextContent());
             return;
         }
@@ -278,18 +282,11 @@ public class Main {
             }
         }
 
-
-//        <SegmentID>2381</SegmentID>
-//        <SegmentCalcTime>2016-10-28T17:30:20.677-07:00</SegmentCalcTime>
-//        <StdDeviationCalcSamplesRemoved>0</StdDeviationCalcSamplesRemoved>
-//        <ExceededMaxFilter>0</ExceededMaxFilter>
-//        <BelowMinFilter>57</BelowMinFilter>
-
         if (entries.getLength() > 0) {
             Statement stmt = conn.createStatement();
             stmt.execute(stmtBuilder.toString());
         }
-        System.out.println(stmtBuilder.toString());
+        // System.out.println(stmtBuilder.toString());
     }
 
     private static void GetTtipTTDcuTraversals(Connection conn) throws IOException, ParserConfigurationException, SAXException, SQLException, InterruptedException {
@@ -304,9 +301,10 @@ public class Main {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db = dbf.newDocumentBuilder();
         Document doc = db.parse(new URL(ttipDataRequestURLPrefix + "TTDcuTraversals").openStream());
-        //Document doc = db.parse(new File("PathToXMLFileForDebugTTDcuTraversals.xml"));
+        //Document doc = db.parse(new File("misc/TTIPData/TTDcuTraversals.xml"));
 
         if (doc.getDocumentElement().getTextContent().contains("too soon to retrieve data")) {
+            System.out.println("http://www.TripCheck.com/TTIPv2/TTIPData/DataRequest.aspx?uid=****&fn=TTDcuTraversals");
             System.out.println(doc.getDocumentElement().getTextContent());
             return;
         }
@@ -348,7 +346,7 @@ public class Main {
             Statement stmt = conn.createStatement();
             stmt.execute(stmtBuilder.toString());
         }
-        System.out.println(stmtBuilder.toString());
+        // System.out.println(stmtBuilder.toString());
     }
 
     public static void GetTrimetVehiclesPosition() throws IOException {
@@ -435,7 +433,7 @@ public class Main {
 
             if (vehicleCount > 0) {
                 stmt.execute(insertStmt.toString());
-                System.out.println(insertStmt.toString());
+                // System.out.println(insertStmt.toString());
             }
         } catch (SQLException e) {
             e.printStackTrace();
