@@ -14,7 +14,6 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.w3c.dom.*;
 
-
 import javax.xml.parsers.*;
 
 import org.xml.sax.SAXException;
@@ -111,16 +110,16 @@ public class Main {
         StringBuilder dcuIDs = new StringBuilder();
 
         stmtBuilder.append("INSERT INTO \"GTFS\".\"TTDcuInventory\" (\n" +
-                "    \"DcuID\",\n" +
-                "    \"DcuName\",\n" +
-                "    \"Latitude\",\n" +
-                "    \"Longitude\",\n" +
-                "    \"Highway\",\n" +
-                "    \"RoadwayNumber\",\n" +
-                "    \"MilePoint\",\n" +
-                "    \"LocationType\",\n" +
-                "    \"IsActive\",\n" +
-                "    \"OWNER\")" +
+                "\t\"DcuID\",\n" +
+                "\t\"DcuName\",\n" +
+                "\t\"Latitude\",\n" +
+                "\t\"Longitude\",\n" +
+                "\t\"Highway\",\n" +
+                "\t\"RoadwayNumber\",\n" +
+                "\t\"MilePoint\",\n" +
+                "\t\"LocationType\",\n" +
+                "\t\"IsActive\",\n" +
+                "\t\"OWNER\")\n" +
                 "VALUES\n");
         for (int i = 0; i < entries.getLength(); i++) {
             Element current = (Element) entries.item(i);
