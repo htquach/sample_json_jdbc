@@ -48,18 +48,18 @@ public class Main {
                 twoMinutesReady = !twoMinutesReady;
                 if (twoMinutesReady) {
                     // Frequency of 2 minute enforced by TTIP data source
-                    GetTtipTTDcuTraversals(conn);
-                    GetTtipTTSegmentCalcs(conn);
+                    //GetTtipTTDcuTraversals(conn);
+                    //GetTtipTTSegmentCalcs(conn);
+                    GetTtipTTDcuInventory(conn);
 
                     // TODO:  implement these functions
-                    //GetTtipTTSegInventory(conn);
-                    //GetTtipTTDcuInventoryURL(conn); //every 24 hours
+                    // GetTtipTTSegInventory(conn); //every 24 hours
                 }
-                InsertVehiclesFeedToSQL(conn);
+                //InsertVehiclesFeedToSQL(conn);
                 System.out.println(String.format("%.3f%%", (w / ((double) loopCount) * 100)));
                 System.out.println("Insert " + w + " of " + loopCount);
                 // Frequency of 1 minute
-                Thread.sleep(60000);
+                Thread.sleep(6000);
             }
         } catch (ParserConfigurationException | SAXException e) {
             e.printStackTrace();
@@ -86,7 +86,7 @@ public class Main {
         stmt.close();
     }
 
-    private static void GetTtipTTSegmentCalcs(Connection conn) throws IOException, ParserConfigurationException, SAXException, SQLException, InterruptedException {
+    private static void GetTtipTTDcuInventory(Connection conn) throws IOException, ParserConfigurationException, SAXException, SQLException, InterruptedException {
         String ttipID = System.getenv("TTIP_ID");
         if (ttipID == null || ttipID.isEmpty()) {
             throw new RuntimeException("TTIP Agency ID is required to query TTIP data.  " +
@@ -95,10 +95,109 @@ public class Main {
         }
         String ttipDataRequestURLPrefix = "http://www.TripCheck.com/TTIPv2/TTIPData/DataRequest.aspx?uid=" + ttipID + "&fn=";
 
-        HashMap<String, Integer> xmlFeedFrequency = new HashMap<String, Integer>();
-        //xmlFeedFrequency.put("TTDcuInventoryURL", 24 * 60 * 60);
-        xmlFeedFrequency.put("TTSegInventory", 120);
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        Document doc = db.parse(new URL(ttipDataRequestURLPrefix + "TTDcuInventory").openStream());
+        // Document doc = db.parse(new File("misc/TTIPData/TTDcuInventory.xml"));
 
+        if (doc.getDocumentElement().getTextContent().contains("too soon to retrieve data")) {
+            System.out.println(doc.getDocumentElement().getTextContent());
+            return;
+        }
+
+        NodeList entries = doc.getElementsByTagName("Table");
+
+        StringBuilder stmtBuilder = new StringBuilder();
+
+        stmtBuilder.append("INSERT INTO \"GTFS\".\"TTDcuInventory\" (\n" +
+                "    \"DcuID\",\n" +
+                "    \"DcuName\",\n" +
+                "    \"Latitude\",\n" +
+                "    \"Longitude\",\n" +
+                "    \"Highway\",\n" +
+                "    \"RoadwayNumber\",\n" +
+                "    \"MilePoint\",\n" +
+                "    \"LocationType\",\n" +
+                "    \"IsActive\",\n" +
+                "    \"OWNER\")" +
+                "VALUES\n");
+        for (int i = 0; i < entries.getLength(); i++) {
+            Element current = (Element) entries.item(i);
+
+            stmtBuilder.append("\t(");
+            stmtBuilder.append(current.getElementsByTagName("DcuID").item(0).getTextContent());
+            stmtBuilder.append(", '");
+            stmtBuilder.append(current.getElementsByTagName("DcuName").item(0).getTextContent());
+            stmtBuilder.append("', ");
+            if (current.getElementsByTagName("Latitude").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("Latitude").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("0.0");
+            }
+            stmtBuilder.append(", ");
+            if (current.getElementsByTagName("Longitude").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("Longitude").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("0.0");
+            }
+            stmtBuilder.append(", '");
+            if (current.getElementsByTagName("Highway").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("Highway").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("Unknown");
+            }
+            stmtBuilder.append("', ");
+            if (current.getElementsByTagName("RoadwayNumber").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("RoadwayNumber").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("1");
+            }
+            stmtBuilder.append(", ");
+            if (current.getElementsByTagName("MilePoint").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("MilePoint").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("0.0");
+            }
+            stmtBuilder.append(", '");
+            if (current.getElementsByTagName("LocationType").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("LocationType").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("0");
+            }
+            stmtBuilder.append("', '");
+            if (current.getElementsByTagName("IsActive").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("IsActive").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("0");
+            }
+            stmtBuilder.append("', '");
+            if (current.getElementsByTagName("OWNER").item(0) != null) {
+                stmtBuilder.append(current.getElementsByTagName("OWNER").item(0).getTextContent());
+            } else {
+                stmtBuilder.append("Unknown");
+            }
+            stmtBuilder.append("')");
+            if (i < entries.getLength() - 1) {
+                stmtBuilder.append(",\n");
+            }
+        }
+        stmtBuilder.append(";");
+
+        if (entries.getLength() > 0) {
+            Statement stmt = conn.createStatement();
+            stmt.execute(stmtBuilder.toString());
+        }
+        System.out.println(stmtBuilder.toString());
+    }
+
+    private static void GetTtipTTSegmentCalcs(Connection conn) throws IOException, ParserConfigurationException, SAXException, SQLException, InterruptedException {
+        String ttipID = System.getenv("TTIP_ID");
+        if (ttipID == null || ttipID.isEmpty()) {
+            throw new RuntimeException("TTIP Agency ID is required to query TTIP data.  " +
+                    "Specify its value in the environment variable 'TTIP_ID'." +
+                    "Detail http://www.tripcheck.com/ttipv2/Documents/TTIPSystemOverview.pdf");
+        }
+        String ttipDataRequestURLPrefix = "http://www.TripCheck.com/TTIPv2/TTIPData/DataRequest.aspx?uid=" + ttipID + "&fn=";
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db = dbf.newDocumentBuilder();
@@ -195,9 +294,6 @@ public class Main {
                     "Detail http://www.tripcheck.com/ttipv2/Documents/TTIPSystemOverview.pdf");
         }
         String ttipDataRequestURLPrefix = "http://www.TripCheck.com/TTIPv2/TTIPData/DataRequest.aspx?uid=" + ttipID + "&fn=";
-
-        HashMap<String, Integer> xmlFeedFrequency = new HashMap<String, Integer>();
-
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db = dbf.newDocumentBuilder();
