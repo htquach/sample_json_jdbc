@@ -48,18 +48,18 @@ public class Main {
                 twoMinutesReady = !twoMinutesReady;
                 if (twoMinutesReady) {
                     // Frequency of 2 minute enforced by TTIP data source
-                    //GetTtipTTDcuTraversals(conn);
-                    //GetTtipTTSegmentCalcs(conn);
+                    GetTtipTTDcuTraversals(conn);
+                    GetTtipTTSegmentCalcs(conn);
                     GetTtipTTDcuInventory(conn);
 
                     // TODO:  implement these functions
                     // GetTtipTTSegInventory(conn); //every 24 hours
                 }
-                //InsertVehiclesFeedToSQL(conn);
+                InsertVehiclesFeedToSQL(conn);
                 System.out.println(String.format("%.3f%%", (w / ((double) loopCount) * 100)));
                 System.out.println("Insert " + w + " of " + loopCount);
                 // Frequency of 1 minute
-                Thread.sleep(6000);
+                Thread.sleep(60000);
             }
         } catch (ParserConfigurationException | SAXException e) {
             e.printStackTrace();
@@ -108,6 +108,7 @@ public class Main {
         NodeList entries = doc.getElementsByTagName("Table");
 
         StringBuilder stmtBuilder = new StringBuilder();
+        StringBuilder dcuIDs = new StringBuilder();
 
         stmtBuilder.append("INSERT INTO \"GTFS\".\"TTDcuInventory\" (\n" +
                 "    \"DcuID\",\n" +
@@ -176,15 +177,21 @@ public class Main {
             } else {
                 stmtBuilder.append("Unknown");
             }
+
+
+            dcuIDs.append(current.getElementsByTagName("DcuID").item(0).getTextContent());
+
             stmtBuilder.append("')");
             if (i < entries.getLength() - 1) {
                 stmtBuilder.append(",\n");
+                dcuIDs.append(",");
             }
         }
         stmtBuilder.append(";");
 
         if (entries.getLength() > 0) {
             Statement stmt = conn.createStatement();
+            stmt.execute("DELETE FROM \"GTFS\".\"TTDcuInventory\" WHERE \"DcuID\" IN (" + dcuIDs.toString() + ");");
             stmt.execute(stmtBuilder.toString());
         }
         System.out.println(stmtBuilder.toString());
